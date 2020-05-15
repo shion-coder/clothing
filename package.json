@@ -2,7 +2,7 @@
   "name": "clothing",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://shion-coder.github.io/simple-clothing",
+  "homepage": "https://shion-coder.github.io/clothing",
   "dependencies": {
     "@material-ui/core": "^4.9.10",
     "@material-ui/icons": "^4.9.1",
