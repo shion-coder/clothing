@@ -6,6 +6,10 @@ import ReactDOM from 'react-dom';
 
 import Root from 'config/root';
 
+import * as serviceWorker from './serviceWorker';
+
 /* -------------------------------------------------------------------------- */
 
 ReactDOM.render(<Root />, document.getElementById('root'));
+
+serviceWorker.register();
