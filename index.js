@@ -1,8 +1,8 @@
-const express = require('express');
-const cors = require('cors');
-const path = require('path');
-const compression = require('compression');
-// const enforce = require('express-sslify');
+const express = require("express");
+const cors = require("cors");
+const path = require("path");
+const compression = require("compression");
+const enforce = require("express-sslify");
 
 /* -------------------------------------------------------------------------- */
 
@@ -13,22 +13,22 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(compression());
-// app.use(enforce.HTTPS({ trustProtoHeader: true }));
+app.use(enforce.HTTPS({ trustProtoHeader: true }));
 
 // Routes
-require('./routes/billing-routes')(app);
+require("./routes/billing-routes")(app);
 
 // Service worker
-app.get('/service-worker.js', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '..', 'build', 'service-worker.js'));
+app.get("/service-worker.js", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "..", "build", "service-worker.js"));
 });
 
 // Production
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, 'client/build')));
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "client/build")));
 
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client/build", "index.html"));
   });
 }
 
